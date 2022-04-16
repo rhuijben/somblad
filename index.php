@@ -148,6 +148,7 @@ srand(make_seed());
           break;
         case '*':
         case 'x':
+        case '&#xD7;';
           $z = $x1 * $x2;
           break;
         case '/':
@@ -263,7 +264,7 @@ srand(make_seed());
               $x1 = rand(rand(0, 3) ? 2 : 1, 10);
               $x2 = $times_use[rand() % count($times_use)];
               
-              print_som($x1, 'x', $x2);
+              print_som($x1, '&#xD7;', $x2);
               break;
             
             case 'div':
@@ -292,7 +293,7 @@ srand(make_seed());
               }
               while((strlen($x1 . $x2) > 10) || ($x1 * $x2) > $keer_max);
               
-              print_som($x1, 'x', $x2);
+              print_som($x1, '&#xD7;', $x2);
               break;
             case 'deel':
               $deel_max = intval($_POST['deel_max']);

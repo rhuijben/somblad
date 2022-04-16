@@ -1,2 +1,2 @@
 <?php
-header('Location: http://somblad.qqn.nl/');
+header('Location: https://somblad.qqn.nl/');
