@@ -45,55 +45,58 @@
     // Center Circle
     $cx = $margin + $tw;
     $cy = $margin + $tw;
-    echo '<circle cx="' . f($cx) . '" cy="' . f($cy) . '" r="' . $cw . '" stroke="black" stroke-width="3" fill="none" />' . "\n";
+    echo '  <circle cx="' . f($cx) . '" cy="' . f($cy) . '" r="' . $cw . '" stroke="black" stroke-width="3" fill="none" />' . "\n";
     
     if ($tafel)
-        echo '<text x="' . f($cx) . '" y="' . f($cy+ $tb) . '" dominant-baseline="middle" text-anchor="middle" style="font: 96pt bold;">' . htmlentities($tafel) . '</text>' . "\n";
+        echo '  <text x="' . f($cx) . '" y="' . f($cy+ $tb) . '" dominant-baseline="middle" text-anchor="middle" style="font: 96pt bold;">' . htmlentities($tafel) . '</text>' . "\n";
 
+    echo "\n";
     for ($i = 0; $i < $lines; $i++) {
       $angle = $start_angle + (360 / $lines) * $i * $direction;
 
-      echo '<line x1="' . f($margin + $tw + sin_deg($angle) * ($cw)) . '" ' .
-                 'y1="' . f($margin + $tw - cos_deg($angle) * ($cw)) . '" ' .
-                 'x2="' . f($margin + $tw + sin_deg($angle) * ($cw + $cmw)) . '" ' .
-                 'y2="' . f($margin + $tw - cos_deg($angle) * ($cw + $cmw)) . '" ' .
-                 ' stroke="black" />' . "\n";
+      echo '  <line x1="' . f($margin + $tw + sin_deg($angle) * ($cw)) . '" ' .
+                   'y1="' . f($margin + $tw - cos_deg($angle) * ($cw)) . '" ' .
+                   'x2="' . f($margin + $tw + sin_deg($angle) * ($cw + $cmw)) . '" ' .
+                   'y2="' . f($margin + $tw - cos_deg($angle) * ($cw + $cmw)) . '" ' .
+                   'stroke="black" />' . "\n";
                  
       if ($tafel && !$div) {
         $cx = $margin + $tw + sin_deg($angle) * ($cw + $cmw  / 2);
         $cy = $margin + $tw - cos_deg($angle) * ($cw + $cmw  / 2);
-        echo '<text x="' . f($cx) . '" y="' . f($cy+ $tb) . '" dominant-baseline="middle" text-anchor="middle" style="font: 48pt bold;">' . ($div ? '&#xF7;' : '&#xD7;') . '</text>' . "\n";
+        echo '  <text x="' . f($cx) . '" y="' . f($cy+ $tb) . '" dominant-baseline="middle" text-anchor="middle" style="font: 48pt bold;">' . ($div ? '&#xF7;' : '&#xD7;') . '</text>' . "\n";
       }
       
       $cx = $margin + $tw + sin_deg($angle) * ($cw + $cmw + $mw / 2);
       $cy = $margin + $tw - cos_deg($angle) * ($cw + $cmw + $mw / 2);
-      echo '<circle cx="' . f($cx) . '" ' .
-                   'cy="' . f($cy) . '" ' .
-                    'r="' . (int)($mw / 2) . '" stroke="black" stroke-width="2" fill="none" />' . "\n";
+      echo '  <circle cx="' . f($cx) . '" ' .
+                     'cy="' . f($cy) . '" ' .
+                      'r="' . (int)($mw / 2) . '" stroke="black" stroke-width="2" fill="none" />' . "\n";
 
       if ($tafel)
-        echo '<text x="' . f($cx) . '" y="' . f($cy+ $tb) . '" dominant-baseline="middle" text-anchor="middle" style="font: 48pt bold;">' . htmlentities($i+1) . '</text>' . "\n";
+        echo '  <text x="' . f($cx) . '" y="' . f($cy+ $tb) . '" dominant-baseline="middle" text-anchor="middle" style="font: 48pt bold;">' . htmlentities($i+1) . '</text>' . "\n";
 
-      echo '<line x1="' . f($margin + $tw + sin_deg($angle) * ($cw + $cmw + $mw)) . '" ' .
-                 'y1="' . f($margin + $tw - cos_deg($angle) * ($cw + $cmw + $mw)) . '" ' .
-                 'x2="' . f($margin + $tw + sin_deg($angle) * ($cw + $cmw + $mw + $mow)) . '" ' .
-                 'y2="' . f($margin + $tw - cos_deg($angle) * ($cw + $cmw + $mw + $mow)) . '" ' .
-                 ' stroke="black" />' . "\n";
+      echo '  <line x1="' . f($margin + $tw + sin_deg($angle) * ($cw + $cmw + $mw)) . '" ' .
+                   'y1="' . f($margin + $tw - cos_deg($angle) * ($cw + $cmw + $mw)) . '" ' .
+                   'x2="' . f($margin + $tw + sin_deg($angle) * ($cw + $cmw + $mw + $mow)) . '" ' .
+                   'y2="' . f($margin + $tw - cos_deg($angle) * ($cw + $cmw + $mw + $mow)) . '" ' .
+                   'stroke="black" />' . "\n";
 
       if ($tafel && $div) {
         $cx = $margin + $tw + sin_deg($angle) * ($cw + $cmw + $mw + $mow / 2);
         $cy = $margin + $tw - cos_deg($angle) * ($cw + $cmw + $mw + $mow / 2);
-        echo '<text x="' . f($cx) . '" y="' . f($cy+ $tb) . '" dominant-baseline="middle" text-anchor="middle" style="font: 48pt bold;">' . ($div ? '&#xF7;' : '&#xD7;') . '</text>' . "\n";
+        echo '  <text x="' . f($cx) . '" y="' . f($cy+ $tb) . '" dominant-baseline="middle" text-anchor="middle" style="font: 48pt bold;">' . ($div ? '&#xF7;' : '&#xD7;') . '</text>' . "\n";
       }
 
       $cx = $margin + $tw + sin_deg($angle) * ($cw + $cmw + $mw + $mow + $ow / 2);
       $cy = $margin + $tw - cos_deg($angle) * ($cw + $cmw + $mw + $mow + $ow / 2);
-      echo '<circle cx="' . f($cx) . '" ' .
-                   'cy="' . f($cy) . '" ' .
-                    'r="' . (int)($ow / 2) . '" stroke="black" stroke-width="2" fill="none" />' . "\n";
+      echo '  <circle cx="' . f($cx) . '" ' .
+                     'cy="' . f($cy) . '" ' .
+                      'r="' . (int)($ow / 2) . '" stroke="black" stroke-width="2" fill="none" />' . "\n";
 
       if ($tafel)
-        echo '<text x="' . f($cx) . '" y="' . f($cy+ $tb) . '" dominant-baseline="middle" text-anchor="middle" style="font: 48pt bold;">' . htmlentities(($i+1) * $tafel) . '</text>' . "\n";
+        echo '  <text x="' . f($cx) . '" y="' . f($cy+ $tb) . '" dominant-baseline="middle" text-anchor="middle" style="font: 48pt bold;">' . htmlentities(($i+1) * $tafel) . '</text>' . "\n";
+        
+      echo "\n";
     }
 
     echo '</svg>';
